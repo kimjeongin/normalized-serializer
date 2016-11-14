@@ -49,6 +49,113 @@ class PostSerializer(NormalizedSerializer):
 ### Result ###
 
 * Post List
+```
+HTTP 200 OK
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
 
+{
+    "post": [
+        {
+            "id": 1,
+            "title": "asdf",
+            "replies": [
+                1,
+                3
+            ],
+            "user": 1
+        },
+        {
+            "id": 2,
+            "title": "asdf",
+            "replies": [
+                2
+            ],
+            "user": 2
+        }
+    ],
+    "replies": [
+        {
+            "id": 1,
+            "content": "asdf",
+            "user": 1
+        },
+        {
+            "id": 2,
+            "content": "asdfasfda",
+            "user": 1
+        },
+        {
+            "id": 3,
+            "content": "asfdasdfafsadf",
+            "user": 3
+        }
+    ],
+    "user": [
+        {
+            "id": 1,
+            "name": "aaa",
+            "nickname": "abc"
+        },
+        {
+            "id": 2,
+            "name": "aaa",
+            "nickname": "abc"
+        },
+        {
+            "id": 3,
+            "name": "aaa",
+            "nickname": "abc"
+        }
+    ]
+}
+```
 * Post Instance
+```
+HTTP 200 OK
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+
+{
+    "post": [
+        {
+            "id": 1,
+            "title": "asdf",
+            "replies": [
+                1,
+                3
+            ],
+            "user": 1
+        }
+    ],
+    "replies": [
+        {
+            "id": 1,
+            "content": "asdf",
+            "user": 1
+        },
+        {
+            "id": 3,
+            "content": "asfdasdfafsadf",
+            "user": 3
+        }
+    ],
+    "user": [
+        {
+            "id": 1,
+            "name": "aaa",
+            "nickname": "abc"
+        },
+        {
+            "id": 3,
+            "name": "aaa",
+            "nickname": "abc"
+        }
+    ]
+}
+```
+
+
 

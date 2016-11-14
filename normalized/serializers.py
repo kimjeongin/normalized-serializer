@@ -1,14 +1,11 @@
 # -*- encoding: utf-8 -*-
 from rest_framework import serializers
-
 from django.core.exceptions import ValidationError
 from rest_framework.validators import UniqueValidator
 from rest_framework.utils.serializer_helpers import *
 from rest_framework.relations import PKOnlyObject
 from rest_framework.fields import SkipField
-
 from django.db import models
-
 
 class NormalizedListSerializer(serializers.ListSerializer):
     def __init__(self, *args, **kwargs):
@@ -43,7 +40,6 @@ class NormalizedListSerializer(serializers.ListSerializer):
 
         iterable = data.all() if isinstance(data, models.Manager) else data
             
-
         if self.parent is None:
             post = [
                 self.child.to_representation(item) for item in iterable
@@ -86,7 +82,6 @@ class NormalizedSerializer(serializers.ModelSerializer):
         self.instancelist_dict = {}
         self.instance_repr_dict = {}
         self.list_serializer_class = NormalizedListSerializer
-        self.test = []
 
     def make_normalized_item(self, instance, fields):
         ret = OrderedDict()
@@ -108,7 +103,6 @@ class NormalizedSerializer(serializers.ModelSerializer):
         """
         ret = OrderedDict()
         fields = self._readable_fields
-        
 
         if self.parent is None:
             normalized_dict = OrderedDict()
